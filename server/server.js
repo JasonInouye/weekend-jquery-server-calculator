@@ -6,6 +6,8 @@ const PORT = 5000;
 
 let mathQuery = [];
 
+let resultOut = [];
+
 
 
 
@@ -23,16 +25,38 @@ app.post( '/mathQuery', function( req, res ){
 
 })
 
-app.get( '/mathQuery', function ( req,res){ 
-    console.log( 'GET server /mathQuery');
-    res.send( mathQuery );
-})
+
 
 function mathResults( array ){
     console.log( 'inside mathResults' );
+    for ( const problem of array ){
+        if (problem.mathOperator === "addBtn"){ 
+            resultOut.push ({
+                mathLeft: problem.mathLeft,
+                mathOperator: problem.mathOperator,
+                mathRight: problem.mathRight,
+                result: Number(problem.mathLeft) + Number(problem.mathRight) 
+            });
+        } else if ( mathOperator === "subtractBtn"){
+            resultOut.push ({
+                mathLeft: problem.mathLeft,
+                mathOperator: problem.mathOperator,
+                mathRight: problem.mathRight,
+                result: Number(problem.mathLeft) - Number(problem.mathRight) 
+            });
+        }
+    } 
+return resultOut;
 }
 
-console.log( mathResults() );
+
+
+app.get( '/mathQuery', function ( req,res){ 
+    console.log( 'GET server /mathQuery');
+    //res.send( mathQuery );
+    res.send( mathResults( mathQuery ) );
+})
+
 
 
 
