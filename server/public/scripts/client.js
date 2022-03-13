@@ -15,9 +15,10 @@ function readyNow(){
     // $('#subtractBtn').on( 'click', subtractOperator );
     // $('#multiplyBtn').on( 'click', multipleOperator );
     // $('#divideBtn').on( 'click', divideOperator );
-    $('#equalBtn').on('click', handleSubmit);
-    $('#equalBtn').on('click', getResults);
+    $('#equalBtn').on('click', handleSubmit );
+    $('#equalBtn').on('click', getResults );
     $('.opBtn').on('click', handleOperator );
+    $('#clearBtn').on('click', handleClear );
 };
 
 // function addOperator(){
@@ -63,6 +64,7 @@ function getResults(){
     }).then( function( response ){
         console.log( response );
         renderResults( response );
+        $('.input').val('');
     }).catch( function( error ){
         console.log( error );
         alert( 'error in mathQuery GET!')
@@ -74,7 +76,25 @@ function renderResults(results){
 
     for ( let i=0; i < results.length; i++ ){
         $('#results').append(`
-            <p>${results[i].mathLeft} ${results[i].mathOperator} ${results[i].mathRight} ${results[i].results}</p>
+            <p class="resultRow">${results[i].mathLeft} ${results[i].mathOperator} ${results[i].mathRight} = ${results[i].result}</p>
         `)
     }
+}
+
+function handleClear(){
+   
+    $('.input').val('');
+    $('#results').empty();
+
+    $.ajax({
+        url: '/clear',
+        method: 'POST',
+        data: {
+            clear: true
+        }
+    }).then( function(response){ 
+        console.log(response);
+    }).catch( function(error){
+        alert('ERROR in CLEAR GET')
+    })
 }
