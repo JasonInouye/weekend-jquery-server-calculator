@@ -73,10 +73,11 @@ function getResults(){
 
 function renderResults(results){
     $('#results').empty();
+    $('#currentResult').text( results[0].result );
 
     for ( let i=0; i < results.length; i++ ){
         $('#results').append(`
-            <p class="resultRow">${results[i].mathLeft} ${results[i].mathOperator} ${results[i].mathRight} = ${results[i].result}</p>
+            <li class="resultRow">${results[i].mathLeft} ${results[i].mathOperator} ${results[i].mathRight} = ${results[i].result}</li>
         `)
     }
 }
@@ -85,6 +86,7 @@ function handleClear(){
    
     $('.input').val('');
     $('#results').empty();
+    $('#currentResult').text('0');
 
     $.ajax({
         url: '/clear',

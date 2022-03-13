@@ -12,16 +12,16 @@ app.use( express.static( 'server/public' ));
 app.use( bodyParser.urlencoded({extended: true}));
 
 app.post( '/mathQuery', function( req, res ){
-    console.log( 'POST /mathQuery', req.body );
+    //console.log( 'POST /mathQuery', req.body );
 
     mathQuery.push( req.body );
     res.sendStatus(201);
-    console.log( mathQuery );
+   // console.log( mathQuery );
 
 })
 
 function mathResults( array ){
-    console.log( 'inside mathResults' );
+    //console.log( 'inside mathResults' );
     for ( const problem of array ){
         if (problem.mathOperator === "addBtn"){ 
             resultOut.unshift ({
@@ -59,13 +59,13 @@ return resultOut;
 }
 
 app.get( '/mathQuery', function ( req,res){ 
-    console.log( 'GET server /mathQuery' );
+    //console.log( 'GET server /mathQuery' );
     //res.send( mathQuery );
     res.send( mathResults( mathQuery ) );
 })
 
 app.post( '/clear', function( req,res ){
-    console.log( 'POST server /Clear', req.body );
+    //console.log( 'POST server /Clear', req.body );
     if (clear = 'true'){
         mathQuery = [];
         resultOut = [];
