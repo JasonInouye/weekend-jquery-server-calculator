@@ -16,6 +16,7 @@ function readyNow(){
     // $('#multiplyBtn').on( 'click', multipleOperator );
     // $('#divideBtn').on( 'click', divideOperator );
     $('#equalBtn').on('click', handleSubmit);
+    $('#equalBtn').on('click', getResults);
     $('.opBtn').on('click', handleOperator );
 };
 
@@ -61,8 +62,19 @@ function getResults(){
         method: 'GET'
     }).then( function( response ){
         console.log( response );
+        renderResults( response );
     }).catch( function( error ){
         console.log( error );
         alert( 'error in mathQuery GET!')
     })
+}
+
+function renderResults(results){
+    $('#results').empty();
+
+    for ( let i=0; i < results.length; i++ ){
+        $('#results').append(`
+            <p>${results[i].mathLeft} ${results[i].mathOperator} ${results[i].mathRight} ${results[i].results}</p>
+        `)
+    }
 }
