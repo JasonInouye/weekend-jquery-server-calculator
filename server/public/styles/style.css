@@ -30,3 +30,15 @@ body {
 .calculator-grid > button:hover {
     background-color: rgba( 255, 255, 255, .90 );
 }
+
+.spanTwo {
+    grid-column: span 2;
+}
+
+.spanThree {
+    grid-column: span 3;
+}
+
+.output{
+    grid-column: 1 / -1;
+}
