@@ -20,4 +20,8 @@ This calculator was created to demonstrate how to GET and POST data to the serve
 -access server
 -ajax
 
+### Acknowledgement 
+
+Thanks to Prime Digital Academy and Dane for providing me with the tools need to complete this Application.
+
 
