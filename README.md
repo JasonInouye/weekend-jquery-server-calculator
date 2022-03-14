@@ -1,9 +1,23 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Server Calculator
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+This calculator was created to demonstrate how to GET and POST data to the server. All calculations were performed on the server and send back to the front end via Ajax. Historical requests are also maintained for reference at a later time. 
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+## Usage
+
+1. Enter your calcutor request on the 2 displays.
+2. Select a math operator and upon hitting = your results will display in the corner.
+3. History of your calculations are kept on the server side for easy reference at a later time.
+
+## Built With
+
+-html
+-javascript
+-jQuery
+-access server
+-ajax
+
+
