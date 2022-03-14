@@ -11,41 +11,21 @@
 </head>
 <body>
     <h1>Server Calculator</h1>
-    <div class="calculator-grid">
-        <div class="output">
-            <!-- try to keep naming convention as close to pre stretch names as possible -->
-            <div data-math-left class="mathLeft"></div>
-            <div data-math-right class="mathRight"></div>
-        </div>
-        <!-- <input type="number" placeholder="Number" id="mathLeft" class="input"> -->
-        <button data-clear class="spanThree" type="submit" id="clearBtn">C</button> 
-
-        <!-- <input type="number" placeholder="Number" id="mathRight" class="input"> -->
-        
-        <button data-operation class="opBtn" id="addBtn">+</button>
-        <button class="numberBtn" data-number>1</button>
-        <button class="numberBtn" data-number>2</button>
-        <button class="numberBtn" data-number>3</button>
-        <button data-operation class="opBtn" id="subtractBtn">-</button>
-        <button class="numberBtn" data-number>4</button>
-        <button class="numberBtn" data-number>5</button>
-        <button class="numberBtn" data-number>6</button>
-        <button data-operation class="opBtn" id="multiplyBtn">*</button>
-        <button class="numberBtn" data-number>7</button>
-        <button class="numberBtn" data-number>8</button>
-        <button class="numberBtn" data-number>9</button>
-        <button data-operation class="opBtn" id="divideBtn">/</button>
-        <button class="numberBtn" data-number>.</button>
-        <button class="numberBtn" data-number>0</button>
-        <button data-equals class="spanTwo" id="equalBtn">=</button>
-           
+    <div id="calculator">
+        <input type="number" placeholder="Number" id="mathLeft" class="input">
+        <button class="opBtn" id="addBtn">+</button>
+        <button class="opBtn" id="subtractBtn">-</button>
+        <button class="opBtn" id="multiplyBtn">*</button>
+        <button class="opBtn" id="divideBtn">/</button>
+        <input type="number" placeholder="Number" id="mathRight" class="input">
+        <button id="equalBtn">=</button>
+        <button type="submit" id="clearBtn">C</button>
     </div>
-    <!-- moving results into display for stretch -->
-    <!-- <div class="display-results">
+    <div class="display-results">
         <p id="currentResult">0</p>
-        <ul id="results"> -->
-            <!-- insert p tags with calculator request -->
-        <!-- </ul>
-    </div> -->
+        <ul id="results">
+            <!--- insert p tags with calculator request --->
+        </ul>
+    </div>
 </body>
 </html>

@@ -2,51 +2,12 @@ console.log( 'Client JS' );
 
 $(readyNow);
 
-
+let op = '';
 // let passAdd = false;
 // let addOperator = false;
 // let subtractOperator = false;
 // let multipleOperator = false;
 // let divideOperator = false;
-
-class Calculator{
-    constructor( mathLeft, mathRight){
-        this.mathLeft = mathLeft;
-        this.mathRight = mathRight;
-        this.clear();
-    }
-    clear(){
-        this.mathLeft = '';
-        this.mathRight = '';
-        this.operation = undefined;
-    }
-    
-    appendNumber(number){
-        this.mathLeft = number
-    }
-
-    operation(operation){
-
-    }
-
-    createObject(){
-
-    }
-
-    updateDisplay(){
-        this.mathLeft.innerText = this.mathLeft;
-    }
-}
-
-let op = '';
-const numberButtons = $('[data-number]');
-const operationButtons = $('[data-operation]');
-const equalsButton = $('[data-equals]');
-const clearButton = $('[data-clear]');
-const mathLeft = $('[data-math-left]');
-const mathRight = $('[data-math-right]');
-
-const calculator = new Calculator( mathLeft, mathRight );
 
 function readyNow(){
     console.log( 'jQuery loaded' );
@@ -54,30 +15,16 @@ function readyNow(){
     // $('#subtractBtn').on( 'click', subtractOperator );
     // $('#multiplyBtn').on( 'click', multipleOperator );
     // $('#divideBtn').on( 'click', divideOperator );
-    $('.numberBtn').on('click', displayButtons);
     $('#equalBtn').on('click', handleSubmit );
     $('#equalBtn').on('click', getResults );
     $('.opBtn').on('click', handleOperator );
     $('#clearBtn').on('click', handleClear );
 };
 
-// numberButtons.forEach(button => {
-//     button.addEventListener('click', () => {
-//         calculator.appendNumber(button.innerText);
-//         calculator.updateDisplay();
-//     })
-// })
-function displayButtons(buttons){
-    console.log( $(this).('data-number') );
-}
 // function addOperator(){
 //     console.log( `inside of addOperator`, passAdd );
 //     return passAdd = true;
 // }
-// function updateDisplay(){
-//     $(this).innerText
-// }
-
 
 function handleOperator(){
     
@@ -92,9 +39,8 @@ function handleOperator(){
 function handleSubmit(){
     console.log( 'inside the handleSubmit' );
 
-    // COME BACK TO THIS IF NEW CALCULATOR DOES NOT WORK
-    // let mathLeft = $('#mathLeft').val();
-    // let mathRight = $('#mathRight').val();
+    let mathLeft = $('#mathLeft').val();
+    let mathRight = $('#mathRight').val();
 
     $.ajax({
         url: '/mathQuery',
